@@ -1,4 +1,3 @@
-import BootstrappedData from '../BootstrappedData';
 import moneyFormatter from '../../helpers/moneyFormatter';
 import Users from '../../api/users';
 
@@ -8,7 +7,7 @@ const userModule = {
             bankroll: null,
             average_big_blinds_per_hour: 0,
             hours_played: 0,
-            id: BootstrappedData.get('user_id'),
+            id: null,
             money_invested: null,
             name: null,
             profit: null,

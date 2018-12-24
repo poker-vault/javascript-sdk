@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import createLogger from 'vuex/dist/logger';
-import BootstrappedData from './BootstrappedData';
 import matchesModule from './modules/matches';
 import userModule from './modules/user';
 import blindsModule from './modules/blinds';
@@ -20,7 +19,7 @@ export default new Vuex.Store({
     plugins: debug ? [createLogger()] : [],
     state: {
         auth: {
-            token: BootstrappedData.get('jwt_token'),
+            token: null,
         },
     },
 });

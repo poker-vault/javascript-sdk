@@ -1,10 +1,8 @@
-import BootstrappedData from '../BootstrappedData';
-
 const configModule = {
     state: {
         config: {
-            bugsnag_api_key: BootstrappedData.get('bugsnag_js_api_key'),
-            env: BootstrappedData.get('env'),
+            bugsnag_api_key: null,
+            env: null,
         },
     },
     getters: {
