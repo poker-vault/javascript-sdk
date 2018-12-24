@@ -1,8 +1,7 @@
 import axios from 'axios';
-import { Toast } from 'buefy';
 import store from '../store';
 
-export default function setup() {
+export default function setup(options) {
     axios.defaults.baseURL = '/api/';
 
     axios.interceptors.request.use((config) => {
@@ -19,17 +18,8 @@ export default function setup() {
         // noop
         return response;
     }, (error) => {
-        if (
-            !error ||
-            !error.response ||
-            error.response.status === 500
-        ) {
-            Toast.open({
-                duration: 5000,
-                message: 'Something\'s not good, the development team has just been notified.',
-                position: 'is-bottom',
-                type: 'is-danger'
-            });
+        if (options.errorCallback) {
+            options.errorCallback(error);
         }
 
         return Promise.reject(error);
