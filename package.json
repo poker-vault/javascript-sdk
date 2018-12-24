@@ -22,5 +22,8 @@
     "underscore": "^1.9.1",
     "vue": "^2.*",
     "vuex": "^3.*"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
