@@ -5,7 +5,7 @@ export default function setup(store, options) {
     axios.defaults.baseURL = options.baseURL || '/api/';
 
     axios.interceptors.request.use((config) => {
-        const token = store.state.auth.token;
+        const token = store.state.authModule.auth.token;
 
         config.headers.Authorization = `Bearer ${token}`;
         config.headers['X-Requested-With'] = 'XMLHttpRequest';
