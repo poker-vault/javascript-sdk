@@ -1,7 +1,7 @@
 import axios from 'axios';
-import store from '../store';
 
-export default function setup(options) {
+export default function setup(store, options) {
+    options = options || {};
     axios.defaults.baseURL = options.baseURL || '/api/';
 
     axios.interceptors.request.use((config) => {
