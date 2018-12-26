@@ -5,6 +5,7 @@ import userModule from './modules/user';
 import blindsModule from './modules/blinds';
 import sidebarModule from './modules/sidebar';
 import configModule from './modules/config';
+import authModule from './modules/auth';
 
 const debug = process.env.NODE_ENV !== 'production';
 
@@ -15,14 +16,10 @@ export default function createStore(VueInstance) {
 
     return new Vuex.Store({
         modules: {
-            matchesModule, userModule, blindsModule, sidebarModule, configModule,
+            matchesModule, userModule, blindsModule, sidebarModule, configModule, authModule,
         },
         strict: debug,
         plugins: debug ? [createLogger()] : [],
-        state: {
-            auth: {
-                token: null,
-            },
-        },
+        state: {},
     });
 };
