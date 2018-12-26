@@ -74,8 +74,8 @@ const userModule = {
                 });
         },
 
-        login({ commit }, email, password) {
-            return Users.login(email, password)
+        login({ commit }, data) {
+            return Users.login(data.email, data.password)
                 .then((response) => {
                     const token = response.data.token;
                     commit('setAuthToken', token);
