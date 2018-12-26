@@ -73,11 +73,25 @@ const userModule = {
                     console.error(response);
                 });
         },
+
+        login({ commit }, email, password) {
+            return Users.login(email, password)
+                .then((response) => {
+                    const token = response.data.data;
+                    commit('setAuthToken', token);
+                })
+                .catch((response) => {
+                    console.error(response);
+                });
+        },
     },
     mutations: {
         setUser(state, user) {
             state.user = user;
         },
+        setAuthToken(state, token) {
+            state.auth.token = token;
+        }
     },
 };
 
