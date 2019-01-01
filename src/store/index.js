@@ -10,8 +10,10 @@ const debug = process.env.NODE_ENV !== 'production';
 
 // we aren't automatically exporting a store object because of vue-native vs vue
 // instead we expose a function allowing the vue instance to be passed
-export default function createStore(VueInstance) {
+export default function createStore(VueInstance, initialState) {
     VueInstance.use(Vuex);
+
+    initialState = initialState || {};
 
     return new Vuex.Store({
         modules: {
@@ -19,10 +21,6 @@ export default function createStore(VueInstance) {
         },
         strict: debug,
         plugins: debug ? [createLogger()] : [],
-        state: {
-            auth: {
-                token: null,
-            },
-        },
+        state: initialState
     });
 };
