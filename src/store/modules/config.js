@@ -18,11 +18,11 @@ const configModule = {
 
     },
     mutations: {
-        setBugsnagApiKey(key) {
+        setBugsnagApiKey(state, key) {
             state.config.bugsnag_api_key = key;
         },
 
-        setEnvironment(env) {
+        setEnvironment(state, env) {
             state.config.env = env;
         }
     },
