@@ -78,6 +78,10 @@ const userModule = {
         setUser(state, user) {
             state.user = user;
         },
+
+        setUserId(state, userId) {
+            state.user.id = userId;
+        }
     },
 };
 
