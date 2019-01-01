@@ -10,7 +10,7 @@ export default {
     },
 
     delete(userId, matchId) {
-        return axios.delete(`/users/${userId}/match/${matchId}`);
+        return axios.delete(`/match/${matchId}`);
     }
 };
 
