@@ -8,5 +8,9 @@ export default {
     create(userId, match) {
         return axios.post(`/users/${userId}/matches`, match);
     },
+
+    delete(userId, matchId) {
+        return axios.delete(`/users/${userId}/matches/${matchId}`);
+    }
 };
 

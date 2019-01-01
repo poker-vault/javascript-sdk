@@ -225,6 +225,14 @@ const matchesModule = {
                     dispatch('getUser', userId); // to recalculate the stats etc.
                 });
         },
+
+        deleteMatch({ commit, dispatch }, { userId, matchId }) {
+            return Matches.delete(userId, matchId)
+                .then((response) => {
+                    dispatch('getUser', userId); // to recalculate the stats etc.
+                    dispatch('getAllMatches', userId); // to recalculate the stats etc.
+                });
+        }
     },
 };
 
