@@ -232,6 +232,14 @@ const matchesModule = {
                     dispatch('getUser', userId); // to recalculate the stats etc.
                     dispatch('getAllMatches', userId); // to recalculate the stats etc.
                 });
+        },
+
+        updateMatch({ commit, dispatch }, updatedMatch) {
+            return Matches.update(updatedMatch)
+                .then((response) => {
+                    dispatch('getUser', userId); // to recalculate the stats etc.
+                    dispatch('getAllMatches', userId); // to recalculate the stats etc.
+                });
         }
     },
 };

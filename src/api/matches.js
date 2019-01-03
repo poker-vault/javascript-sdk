@@ -11,6 +11,10 @@ export default {
 
     delete(userId, matchId) {
         return axios.delete(`/match/${matchId}`);
+    },
+
+    update(updatedMatch) {
+        return axios.put(`/match/${updatedMatch}`, updatedMatch)
     }
 };
 
