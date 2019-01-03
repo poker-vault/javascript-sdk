@@ -14,7 +14,7 @@ export default {
     },
 
     update(updatedMatch) {
-        return axios.put(`/match/${updatedMatch}`, updatedMatch)
+        return axios.put(`/match/${updatedMatch.id}`, updatedMatch)
     }
 };
 
