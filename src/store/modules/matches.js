@@ -235,6 +235,7 @@ const matchesModule = {
         },
 
         updateMatch({ commit, dispatch }, updatedMatch) {
+            const userId = updatedMatch.user_id;
             return Matches.update(updatedMatch)
                 .then((response) => {
                     dispatch('getUser', userId); // to recalculate the stats etc.
