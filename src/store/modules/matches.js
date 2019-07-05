@@ -8,10 +8,6 @@ const matchesModule = {
         matches: [],
     },
     mutations: {
-        addMatch(state, match) {
-            state.matches.unshift(match);
-        },
-
         setMatches(state, matches) {
             state.matches = matches;
         },
@@ -221,8 +217,8 @@ const matchesModule = {
             return Matches.create(userId, match)
                 .then((response) => {
                     const createdMatch = response.data.data;
-                    commit('addMatch', createdMatch);
                     dispatch('getUser', userId); // to recalculate the stats etc.
+                    dispatch('getAllMatches', userId); // to recalculate the stats etc.
                 });
         },
 
